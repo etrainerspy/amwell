@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+/*
+Merge the records (objects) from both arrays by 'id' into a new array,  exclude any that do not have matching 'id'.
+The result array should contain records (objects) with the following keys: name, employ_id, and dob;
+
+A -> employee_info = [{id: 1, name: 'John', emp_id: '1001', salary: '75000' }, {id: 2, name: 'Peter', emp_id: '1370', salary: '90000'}, {id: 3, name: 'Jullian', emp_id: '1527', salary: '80500'}, {id: 4, name: 'Jessica', emp_id: '257', salary: '54000']];
+
+B -> employee_dob = [{id: 4, dob: '05/01/1971'}, {id: 1, dob: '06/10/1985'}, {id: 3, dob: '12/17/1990'}];
+
+*/
+
+employee_info = [{id: 1, name: 'John', emp_id: '1001', salary: '75000' }, {id: 2, name: 'Peter', emp_id: '1370', salary: '90000'}, {id: 3, name: 'Jullian', emp_id: '1527', salary: '80500'}, {id: 4, name: 'Jessica', emp_id: '257', salary: '54000'}];
+
+employee_dob = [{id: 4, dob: '05/01/1971'}, {id: 1, dob: '06/10/1985'}, {id: 3, dob: '12/17/1990'}];
+
+employee_new_info = [];
+
+console.log('Employee Info records: ');
+console.log(employee_info);
+console.log('Employee DOB records: ');
+console.log(employee_dob);
+console.log('------------------------');
+
+for (i = 0; i < employee_info.length; i++) {
+  for (j = 0; j< employee_dob.length; j++) {
+    if (employee_info[i].id === employee_dob[j].id ) {
+        // console.log('left: '+ employee_info[i].id);
+        // console.log('right: '+ employee_dob[j].id);
+        new_value = {};
+        new_value = {name: employee_info[i].name, emp_id: employee_info[i].emp_id, dob: employee_dob[j].dob };
+        // console.log(new_value);
+        // console.log('----------------------');
+        employee_new_info.push(new_value);
+    }
+  }
+}
+
+console.log('The result array is: ');
+console.log(employee_new_info);
+
+
+
+
+    </script>
+  </body>
+</html>

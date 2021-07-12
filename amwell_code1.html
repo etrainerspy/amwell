@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+/*
+Remove characters from a string that occurs exactly N times. Letters are case-insensitive.
+Handle possible error scenarios. Think of Unit tests.
+Example: removeDuplicates(string, int);
+Input - “Hello WORLD!!!”, 3
+Expected Output - ”Heo WORD”
+*/
+
+
+function removeFreq(inString, N) {
+  if (N < 0 || parseInt(N) !== N) {
+    console.log('N must be a positive integer.');
+    return
+  }
+
+  charFreq = {};
+  for (i = 0; i < inString.length; i++) {
+    lcString = inString[i];
+    lcString = lcString.toLowerCase();
+    if (typeof charFreq[lcString] === 'undefined') {
+     charFreq[lcString] = 1;
+    } else {
+      charFreq[lcString]++;
+    }
+  }
+
+  //remove chars
+  stringOut = '';
+  for (j = 0; j < inString.length; j++) {
+    lcString = inString[j];
+    lcString = lcString.toLowerCase();
+    if(charFreq[lcString] != N) {
+      stringOut += inString[j];
+    }
+  }
+
+  return stringOut;
+}
+
+chosen_string = 'Hello WORLD!!!';
+chosen_freq_to_remove = 3;
+console.log('input parameters: ' + chosen_string,chosen_freq_to_remove)
+console.log('======================= Result =======================');
+console.log(removeFreq(chosen_string, chosen_freq_to_remove));
+
+    </script>
+  </body>
+</html>
+
+
+
+

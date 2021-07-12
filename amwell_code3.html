@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+/*
+A = [1 2 -1 1 0 5 6 5 7 10 13 3 5]
+
+1. Can you find the second largest number : 10 (not using sort)
+
+2. Can you find the frequency of item in array
+
+     1 : 2
+     2: 1
+    -1 : 1
+     5: 3
+
+*/
+
+
+// Part 1
+
+A = [1, 2, -1, 1, 0, 5, 6, 5, 7, 10, 13, 3, 5];
+
+for (i = 0; i < A.length; i++) {
+  status = 0;
+  if (typeof largestNum1 === 'undefined') {
+    largestNum1 = A[i];
+    status = 1; //complete
+  } else if(A[i] > largestNum1) {
+      status = 2; //pass value to check with 2nd
+  }
+
+  if (status == 2) {
+    if (typeof largestNum2 === 'undefined') {
+      largestNum2 = largestNum1;
+    } else if (largestNum1 > largestNum2) {
+      largestNum2 = largestNum1;
+    }
+      largestNum1 = A[i];
+  } else if (status == 0 && (typeof largestNum2 === 'undefined' || A[i] > largestNum2)) {
+    largestNum2 = A[i];
+  }
+
+/*
+  console.log('read in value: '+ A[i]);
+  if (typeof largestNum1 !== 'undefined') {
+    console.log('1st largest number is: '+largestNum1);
+  }
+  if (typeof largestNum2 !== 'undefined') {
+    console.log('2nd largest number is: '+largestNum2);
+  }
+  console.log('----- end loop #: '+i);
+*/
+}
+
+console.log('The input numbers list was: ');
+console.log(A);
+console.log('--------------------- Result 1 ---------------------');
+console.log('2nd largest number is: '+largestNum2);
+
+
+// Part 2
+freqList = {};
+
+for (i = 0; i < A.length; i++) {
+  if (typeof freqList[A[i]] === 'undefined') {
+   freqList[A[i]] = 1;
+  } else {
+    freqList[A[i]]++;
+  }
+}
+
+console.log('');
+console.log('--------------------- Result 2 ---------------------');
+console.log('frequency list: ');
+console.log(freqList);
+
+
+    </script>
+  </body>
+</html>
